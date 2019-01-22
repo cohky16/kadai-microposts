@@ -2,8 +2,8 @@
 
 one:
   user: one
-  follow: one
+  micropost: one
 
 two:
   user: two
-  follow: two
+  micropost: two
