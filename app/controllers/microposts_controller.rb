@@ -19,6 +19,26 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def edit 
+    @micropost = Micropost.find(params[:id])
+  end 
+  
+  def update 
+    @micropost = Micropost.find(params[:id])
+
+    if @micropost.update(micropost_params)
+      flash[:success] = 'Message は正常に更新されました'
+      redirect_to @micropost
+    else
+      flash.now[:danger] = 'Message は更新されませんでした'
+      render :edit
+    end
+  end 
+  
+  def show 
+    @micropost = Micropost.find(params[:id])
+  end
+  
   private
   
   def micropost_params

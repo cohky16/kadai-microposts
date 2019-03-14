@@ -22,6 +22,11 @@
     </div>
     
     <div class="form-group">
+      <%= f.label :age, 'Age'%>
+      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ],class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
       <%= f.label :password, 'Password'%>
       <%= f.password_field :password,class: 'form-control'%>
     </div>

@@ -14,10 +14,13 @@ Rails.application.routes.draw do
     end 
   end
   
-  resources :microposts, only: [:create, :destroy] do
+  resources :microposts, only: [:create, :destroy, :edit, :show] do
     member do
       post :likes, to: 'likes#create'
       delete :unlikes, to: 'likes#destroy'
+      post :edit
+      get :show
+      patch :update
     end 
   end
   
