@@ -2,10 +2,21 @@
   <aside class="col-xs-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= @user.name %>/<%= @user.age %></h3>
+        <h3 class="panel-title"><%= @user.name %></h3>
       </div>
       <div class="panel-body">
-        <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 })%>" alt="">
+        <% if @user.picture.file.nil? %>
+          <img class="media-object img-rounded img-responsive" src="<%= gravatar_url(@user, { size: 500 })%>" alt="">
+        <% else %>
+          <%= image_tag(@user.picture.url, size: 300) %>
+        <% end %>
+      </div>
+      <div class="panel-footer text-center"> 
+        <p>年齢：<%= @user.age %></p>
+        <p>性別：<%= @user.gender %></p>
+        <% if current_user == @user %>
+        <%= link_to 'edit', edit_user_path(@user), class: 'btn btn-primary'%>
+        <% end %>
       </div>
     </div>
     <%= render 'relationships/follow_button', user: @user %>

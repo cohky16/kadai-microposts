@@ -21,9 +21,22 @@
       <%= f.email_field :email,class: 'form-control'%>
     </div>
     
-    <div class="form-group">
+    <div class="form-group"  style="display: inline-block; margin: 20px 0 20px 0;">
       <%= f.label :age, 'Age'%>
-      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ],class: 'form-control' %>
+      <%= f.select :age, [["",""],["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ],class: 'form-control' %>
+    </div>
+    
+    <div class="form-group" style="display: inline-block; margin-left: 30px;">
+      <%= f.label :gender, 'Gender'%>
+      <label>
+        <%= f.radio_button :gender, "男性" %> 男性</label>
+        <label>
+        <%= f.radio_button :gender, "女性"%> 女性</label>
+    </div>
+    
+    <div class="form-group"  style="display: inline-block; margin: 20px 0 20px 0;">
+      <%= f.label :picture, 'Thumbnail'%>
+       <%= f.file_field :picture %>
     </div>
     
     <div class="form-group">

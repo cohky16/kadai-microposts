@@ -1,0 +1,35 @@
+<% if current_user == @user %>
+
+ <h1><%= @user.name %> のユーザー情報</h1>
+
+
+    <%= form_for(@user) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'Name'%>
+        <%= f.text_field :name,class: 'form-control', style: 'width: 200px; display:inline;'%>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :age, 'Age'%>
+        <%= f.select :age, [["", ""],["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ],class: 'form-control' %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :gender, 'Gender'%>
+        <label>
+          <%= f.radio_button :gender, "男性" %> 男性</label>
+        <label>
+          <%= f.radio_button :gender, "女性"%> 女性</label>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :picture, 'Thumbnail'%>
+        <%= f.file_field :picture %>
+      </div>
+
+      <%= f.submit '更新', class: 'btn btn-default' %>
+    <% end %>
+    <br>
+  <%= link_to 'ユーザーに戻る', @user , class: 'btn btn-primary' %>
+  
+<% end %>
