@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :followers
       get :likes
       post :edit
+      delete :destroy
       patch :update
     end 
   end

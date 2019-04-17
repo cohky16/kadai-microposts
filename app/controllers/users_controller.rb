@@ -43,6 +43,21 @@ class UsersController < ApplicationController
       render :edit
     end
   end 
+  
+  def destroy 
+    @user = User.find_by(id: params[:id])
+    @microposts = Micropost.find_by(user_id: params[:id])
+    flash[:success] = "ユーザーを削除しました"
+
+    if @microposts.nil?
+      @user.destroy
+      redirect_to("/")
+    else
+      @microposts.destroy
+      @user.destroy
+      redirect_to("/")
+    end
+  end 
       
   def followings
     @user = User.find(params[:id])
@@ -75,5 +90,4 @@ class UsersController < ApplicationController
   #   redirect_to root_url
   #   end 
   # end 
-  
 end

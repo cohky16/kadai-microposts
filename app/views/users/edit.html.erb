@@ -32,4 +32,6 @@
     <br>
   <%= link_to 'ユーザーに戻る', @user , class: 'btn btn-primary' %>
   
+  <%= link_to '退会する', user_path(@user), method: :delete, data: {confirm: 'You sure?'}, class: 'btn btn-danger' %>
+  
 <% end %>
